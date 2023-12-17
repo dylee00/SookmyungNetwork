@@ -9,9 +9,9 @@ public class JdbcTemplate {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(
-                    "jdbc:mysql://sookmyung-network.ctejkrebksxz.us-east-1.rds.amazonaws.com:3306/network?serverTime=UTC&characterEncoding=UTF-8",
-                    "dylee",
-                    "20001122");
+                    "url",
+                    "username",
+                    "password");
             conn.setAutoCommit(false);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
