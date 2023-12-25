@@ -17,7 +17,7 @@ public class ClientThread extends Thread {
     private final ClientThread[] threads;
     private int maxClientsCount;
 
-    private Main main;
+
 
 
 
@@ -41,10 +41,14 @@ public class ClientThread extends Thread {
             String name;
 
             /* Welcome the new the client. */
-            // 사용자 이름을 불러오는 코드 추가
-            User newUser = new User("2110072", "이다연"); // User 객체 생성
-            String userName = newUser.getUserName();
-            name = userName;
+             while (true) {
+                name = is.readLine().trim();
+                if (name.indexOf('@') == -1) {
+                    break;
+                } else {
+                    os.println("The name should not contain '@' character.");
+                }
+            }
             os.println(name + "님이 " + "강의실 분실물 채팅에 입장하셨습니다.\n이 채팅방을 나가려면 새로운 줄에 '/나가기' 를 입력하세요.");
             synchronized (this) {
                 for (int i = 0; i < maxClientsCount; i++) {
