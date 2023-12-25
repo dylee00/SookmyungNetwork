@@ -12,6 +12,8 @@ import java.io.*;
 import java.net.Socket;
 import java.util.Observable;
 import java.util.Observer;
+import org.example.Main;
+
 
 public class ChatClient {
     static public String roomname = "";
@@ -152,7 +154,15 @@ public class ChatClient {
         frame.setVisible(true);
 
         try {
-            access.InitSocket(server, port);
+            access.InitSocket(server, port); //서버와의 소켓 연결 초기화
+            //로그인한 사용자 정보를 서버에 전송
+            if (Main.currentUser != null) {
+                String username;
+                User currentUser = Main.currentUser;
+                access.send(currentUser.getUserName());
+                username = currentUser.getUserName();
+                System.out.println(username);
+            }
         } catch (IOException ex) {
             System.out.println("Cannot connect to " + server + ":" + port);
             ex.printStackTrace();
