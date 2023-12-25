@@ -15,7 +15,7 @@ public class Main extends JFrame {
     public SelectFloorPanel selectFloorPanel = null;
     public LectureRoomResPanel2 lectureRoomResPanel2 = null;
     public LectureRoomResPanel5 lectureRoomResPanel5 = null;
-    public User currentUser;
+    public static User currentUser = null;
 
     public SelectChattingRoomPanel selectChattingRoomPanel = null;
 //    ChatClient chatTest = new ChatClient();
